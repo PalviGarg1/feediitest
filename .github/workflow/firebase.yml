@@ -30,7 +30,7 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - name: Archive Build
-    - uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v2
       with:
         name: build
         path: build   
@@ -42,12 +42,12 @@ jobs:
      steps:
        - uses: actions/checkout@v3
        - name: download build
-       - uses: actions/download-artifact@v2
+         uses: actions/download-artifact@v2
          with:
           name: build
           path: build
        - name: deploy to firebase
-       - uses: w9jds/firebase-action@master
+         uses: w9jds/firebase-action@master
          with:
           args: deploy --only hosting
          env:
